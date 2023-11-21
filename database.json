@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ram",
+      "age": 90,
+      "email": "ram007@gmail.com",
+      "password": "raaamu"
+    },
+    {
+      "id": 2,
+      "name": "Sabari",
+      "age": 20,
+      "email": "sabari@gmail.com",
+      "password": "sabari"
+    },
+    {
+      "id": 3,
+      "name": "Siva",
+      "age": 20,
+      "email": "siva@gmail.com",
+      "password": "siva"
+    },
+    {
+      "id": 4,
+      "name": "Srinivas",
+      "age": 18,
+      "email": "srinivas@gmail.com",
+      "password": "srinivas"
+    },
+    {
+      "id": 5,
+      "name": "Shinchan",
+      "age": 6,
+      "email": "shinchan@gmail.com",
+      "password": "shinchan"
+    }
+  ]
+}
