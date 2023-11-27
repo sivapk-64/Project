@@ -12,7 +12,7 @@ export const Menulist =[
         Rating : <>
         <StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarHalfIcon  sx={{color:"gold"}}/><StarBorderIcon sx={{color:"gold"}}/>
         </>,
-        price :  70000
+        price :  5000
     },
     {
         name : 'Preethi new Induction Stove',
@@ -21,7 +21,7 @@ export const Menulist =[
         Rating : <>
         <StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/> <StarRateIcon sx={{color:"gold"}}/><StarBorderIcon sx={{color:"gold"}}/>
         </>,
-        price : 67000
+        price : 9000
     },
     {
         name : 'Premier',
@@ -30,6 +30,6 @@ export const Menulist =[
         Rating : <>
         <StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarHalfIcon  sx={{color:"gold"}}/><StarBorderIcon sx={{color:"gold"}}/>
         </>,
-        price : 55000
+        price : 4500
     },
 ]

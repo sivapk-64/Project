@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Login  from './Login';
-import About from './About'
+import About from './About';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Button from '@mui/material/Button';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
@@ -182,7 +183,7 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' },fontColor:'yellow' }}
           >
-            <ShoppingBagIcon sx={{fontSize:'30px',marginBottom:'10px'}}/>Demand Zone
+            SSS
           </Typography>
           <Searchbar/>
          

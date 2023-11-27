@@ -21,11 +21,11 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
         Rating : <>
         <StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/> <StarRateIcon sx={{color:"gold"}}/><StarBorderIcon sx={{color:"gold"}}/>
         </>,
-        price : 67000
+        price : 120000
     },
     {
-        name : 'Aser',
-        description : 'Aser notebook 15',
+        name : 'Acer',
+        description : 'Acer notebook 15',
         image : Aser,
         Rating : <>
         <StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarRateIcon sx={{color:"gold"}}/><StarHalfIcon  sx={{color:"gold"}}/><StarBorderIcon sx={{color:"gold"}}/>
