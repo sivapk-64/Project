@@ -2,8 +2,10 @@ import * as React from 'react';
 import Login  from './Login';
 import About from './About'
 import Button from '@mui/material/Button';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Signup from './Signup';
+import LoginButton from './LoginButton';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -26,8 +28,11 @@ import { useNavigate } from 'react-router-dom';
 import NavtoHome from './NavtoHome';
 import Searchbar from './Searchbar';
 import { createBrowserRouter } from 'react-router-dom';
+import NewLogin from './NewLogin';
+import { createContext } from "react";
+import Display from './Display';
 
-
+export const AuthContext = createContext({});
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -68,14 +73,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
+// export let log=false;
 export default function PrimarySearchAppBar() {
+  const[loggedin,setloggedin]=React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -115,7 +120,7 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem  onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem  onClick={handleMenuClose}><Display/></MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -150,7 +155,7 @@ export default function PrimarySearchAppBar() {
         <p>Profile</p>
       </MenuItem>
       <MenuItem>
-             <Login />
+            <Login />
       </MenuItem>
       <MenuItem>
               <Signup/>
@@ -175,9 +180,9 @@ export default function PrimarySearchAppBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'none', sm: 'block' },fontColor:'yellow' }}
           >
-            SSS
+            <ShoppingBagIcon sx={{fontSize:'30px',marginBottom:'10px'}}/>Demand Zone
           </Typography>
           <Searchbar/>
          
@@ -201,14 +206,21 @@ export default function PrimarySearchAppBar() {
                onClick={handleCheckout}
                color="inherit"
               >
-
               <ShoppingCartCheckoutIcon/>
               </IconButton>
             </IconButton>
+            <div marginTop="40px">
+
+          
+            </div>
             <NavtoHome/>
             <About/>
-           <Login/>
+           
+    
+           <LoginButton/>
            <Signup/>
+    
+            
             <IconButton
               size="large"
               edge="end"

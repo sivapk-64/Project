@@ -30,7 +30,6 @@ export default function Login() {
             Enter the details Below!
           </DialogContentText>
           <TextField
-           
             autoFocus
             margin="dense"
             id="name"

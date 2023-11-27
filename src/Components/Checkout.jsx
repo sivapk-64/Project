@@ -21,7 +21,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        DEMAND ZONE
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -58,6 +58,7 @@ export default function Checkout() {
   return (
     <>
     <PrimarySearchAppBar/>
+    <div >
     <React.Fragment>
       <CssBaseline />
       <AppBar
@@ -71,7 +72,7 @@ export default function Checkout() {
       >
         <Toolbar>
           <Typography variant="h6" color="inherit" fontStyle="italic" noWrap>
-            SSS Checkout Process
+            Demand Zone Checkout Process
           </Typography>
         </Toolbar>
       </AppBar>
@@ -122,6 +123,7 @@ export default function Checkout() {
         <Copyright />
       </Container>
     </React.Fragment>
+    </div>
     </>
   );
 }

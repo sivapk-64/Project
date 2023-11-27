@@ -18,37 +18,79 @@ import { useNavigate } from 'react-router-dom';
 import Login from './Login';
 import PrimarySearchAppBar from './PrimarySearchAppBar';
 import axios from 'axios';
-
-
-// TODO remove, this demo shouldn't need to reset the theme.
+import NewLogin from './NewLogin';
+import LoginButton from './LoginButton';
 const defaultTheme = createTheme();
-
-
 export default function SignupPage() {
+  //Axios.get
+  // const[users,setusers]=React.useState([]);
+  // React.useEffect(()=>{
+  // axios.get("http://localhost:8081/users").then(res=>setusers(res.data))
+  // },[])
+  //Axios.post
+  const postvalues=()=>{
+    // if(namee===""){
+    //   setRegistrationSuccess(false)
+    //  // alert("Name is empty");
+    //   return;
+    // }
+    // if (!passwordRegex.test(passs)) {
+    //   setRegistrationSuccess(false)
+    //  // alert("Password length should be atleast 8 characters");
+    //   return;
+    // }
+    // if (passs !== conf) {
+    //   setRegistrationSuccess(false)
+    //   //alert("Passwords don't match");
+    //   return;
+    // }
+    // const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    axios.post("http://localhost:8081/users",{
+      "name":namee,
+      "email":emaill,
+      "password":passs,
+    }).then(res=>console.log(res));
+    navigate("/");
+  }
+  // changeloguser(false);
+  // const [passwordError, setPasswordError] = React.useState('');
+   const [registrationSuccess, setRegistrationSuccess] = React.useState(false);
+  const [namee,setnamee]=React.useState("")
+  const[emaill,setemaill]=React.useState("");
+  const[passs,setpasss]=React.useState("");
+  const [conf,setconf]=React.useState("");
+  const navigate=useNavigate();
   const paperedit={
-      backgroundImage :' linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)),url(https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
-      backgroundSize :'cover',
+    backgroundImage :' linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)),url(https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
+    backgroundSize :'cover',
   };
   const back={
     backgroundImage:'https://static.vecteezy.com/system/resources/thumbnails/006/941/002/small/small-hexagon-shape-with-light-white-and-grey-color-seamless-pattern-background-free-vector.jpg',
     backgroundSize :'cover',
   }
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-  
-  const navigate=useNavigate();
-  const naviagtetohome=()=>{
-    navigate("/");
-  }
+  // const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  // if (!passwordRegex.test(passs)) {
+  //   setPasswordError('Password must be at least 6 characters long and contain at least one letter and one number.');
+  // } else {
+  //   setPasswordError('');
+  //   }
+
+  // if (passs !== conf) {
+  //   alert("Passwords don't match");
+  //   return;
+  // }
+
+  //setRegistrationSuccess(true);
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //   });
+  // };
   return (
-    <>
-   
+    <> 
     <PrimarySearchAppBar/> 
     <div style={{height:'400px' }}>
     <Grid align="center">
@@ -70,20 +112,22 @@ export default function SignupPage() {
           <Typography component="h1" variant="h5"  sx={{fontWeight: 'bold'}}>
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3}}>
+          <Box component="form" noValidate sx={{ mt: 3}}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={12}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+                value={namee}
+                // ref={nameref}
+                  
+                  name="Namee"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
+                  id="Name"
+                  label="Name"
+                  onChange={(e)=>setnamee(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -92,9 +136,11 @@ export default function SignupPage() {
                   name="lastName"
                   autoComplete="family-name"
                 />
-              </Grid>
+              </Grid> */}
               <Grid item xs={12}>
                 <TextField
+               value={emaill}
+               onChange={(e)=>setemaill(e.target.value)}
                   required
                   fullWidth
                   id="email"
@@ -102,9 +148,12 @@ export default function SignupPage() {
                   name="email"
                   autoComplete="email"
                 />
+               
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                value={passs}
+                onChange={(e)=>setpasss(e.target.value)}
                   required
                   fullWidth
                   name="password"
@@ -114,25 +163,34 @@ export default function SignupPage() {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12} sx={{marginRight:"210px"}} >
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="success" />}
-                  label="Remember me"
+              <Grid item xs={12}>
+                <TextField
+                value={conf}
+                onChange={(e)=>setconf(e.target.value)}
+                  required
+                  fullWidth
+                  name="confirm password"
+                  label="confirm Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
                 />
               </Grid>
             </Grid>
-            <Button
+           <Button
+            disabled={registrationSuccess}
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={postvalues}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
               Already have an acc?
-                  <Button sx={{fontSize:"10px"}} ><Login/></Button>
+                  <Button sx={{fontSize:"10px"}} ><LoginButton/></Button>
               </Grid>
             </Grid>
           </Box>

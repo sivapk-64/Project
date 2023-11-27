@@ -3,7 +3,13 @@ import { Box, Card, CardActionArea, CardContent, CardMedia, Typography,Button,Gr
 import { Menulist } from './Datastove'
 import StadiumIcon from '@mui/icons-material/Stadium';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-function Stove() {
+function Stove({count,setcount,cart,setcart,tprice,setprice}) {
+  const solve=(myname,price)=>{
+     setcount(count+1);
+    setcart([...cart,myname]);
+    setprice(tprice+price)
+    alert("added to cart");
+  };
   return (
      <>
      <Box sx={{bgcolor:"black",color:"white",p:2}}>
@@ -35,14 +41,26 @@ function Stove() {
                        <b>
                         Price:{menu1.price}
                         </b>
-                     <Button sx={{marginLeft:"200px"}}>Add to Cart</Button>
+                     <Button sx={{marginLeft:"200px"
+                     }} onClick={()=>solve(menu1.name,menu1.price)}
+                      >Add to Cart</Button>
                      </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
-        ))
+        )) 
       }
      </Box>
+     {/* <ul>
+        {cartlist.map((element, index) => (
+          <li
+            className="my-4 px-4 border-2 rounded-lg"
+            key={index}
+          >
+            {element}
+          </li>
+        ))}
+        </ul>         */}
      </>
   )
 }

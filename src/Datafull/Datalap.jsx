@@ -4,8 +4,8 @@ import Aser from './Cartcontent/Laptop/pic3.jpg'
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-export const Laplist =[
-    {
+ export const Laplist=[
+        {
         name : 'Hp',
         description : 'Hp pavilion',
         image : Hp,
@@ -32,5 +32,5 @@ export const Laplist =[
         </>,
         price : 55000
     },
-    
+
 ]
